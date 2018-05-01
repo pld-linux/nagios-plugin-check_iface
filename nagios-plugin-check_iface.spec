@@ -1,8 +1,9 @@
+# TODO: add config
 %define		plugin	check_iface
 Summary:	Nagios/Icinga plugin for checking network interface speed
 Name:		nagios-plugin-%{plugin}
 Version:	1.0
-Release:	1
+Release:	1.1
 License:	GPL
 Group:		Networking
 Source0:	https://raw.githubusercontent.com/wifibox/linux-admin-tools/master/nagios/plugins/check_net_iface
@@ -20,18 +21,19 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Nagios/Icinga plugin for checking network interface speed.
 
 %prep
-%setup -q -n monitoring-plugin-%{plugin}-%{version}
+%setup -qTc
+install %{SOURCE0} %{plugin}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{plugindir}}
-install -p %{plugin}.sh $RPM_BUILD_ROOT%{plugindir}/%{plugin}
-sed -e 's,@plugindir@,%{plugindir},' %{plugin}.cfg > $RPM_BUILD_ROOT%{_sysconfdir}/%{plugin}.cfg
+
+install -p %{plugin} $RPM_BUILD_ROOT%{plugindir}/%{plugin}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{plugin}.cfg
+#%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/%{plugin}.cfg
 %attr(755,root,root) %{plugindir}/%{plugin}
