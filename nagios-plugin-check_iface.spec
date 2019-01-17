@@ -2,7 +2,7 @@
 Summary:	Nagios/Icinga plugin for checking network interface speed
 Name:		nagios-plugin-%{plugin}
 Version:	1.0
-Release:	2
+Release:	3
 License:	GPL
 Group:		Networking
 Source0:	https://raw.githubusercontent.com/wifibox/linux-admin-tools/master/nagios/plugins/check_net_iface
