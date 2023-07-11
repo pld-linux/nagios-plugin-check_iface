@@ -6,7 +6,7 @@ Release:	1
 License:	GPL v3
 Group:		Networking
 Source0:	check_iface.py
-# Source0-md5:	30366d25cf1e3b035cf49f2d5d556cbe
+# Source0-md5:	e09224c2a7d2b0c05eab019bc653d2eb
 Source1:	check_iface.cfg
 Requires:	nagios-common
 Requires:       python3-netifaces
