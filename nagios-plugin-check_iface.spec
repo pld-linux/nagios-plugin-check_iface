@@ -1,15 +1,16 @@
 %define		plugin	check_iface
 Summary:	Nagios/Icinga plugin for checking network interface speed
 Name:		nagios-plugin-%{plugin}
-Version:	1.0
-Release:	3
-License:	GPL
+Version:	2.0
+Release:	1
+License:	GPL v3
 Group:		Networking
-Source0:	https://raw.githubusercontent.com/wifibox/linux-admin-tools/master/nagios/plugins/check_net_iface
+Source0:	check_iface.py
 # Source0-md5:	30366d25cf1e3b035cf49f2d5d556cbe
 Source1:	check_iface.cfg
-URL:		https://github.com/wifibox/linux-admin-tools/blob/master/nagios/plugins/check_net_iface
 Requires:	nagios-common
+Requires:       python3-netifaces
+Requires:       python3-psutil
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
